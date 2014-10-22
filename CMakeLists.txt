@@ -27,9 +27,9 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 SET(SRC_LIST
 	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/mga.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/planet_vsop87.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/planet_vsop87.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/vsop87.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/plot.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/plot.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/con2mo.cpp
 	)
     
