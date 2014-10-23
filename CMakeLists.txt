@@ -3,10 +3,12 @@ cmake_minimum_required(VERSION 2.8)
 INCLUDE(CheckCXXCompilerFlag)
 
 CHECK_CXX_COMPILER_FLAG(-std=c++1y ALL_C11)
-IF(ALL_C11)
-	MESSAGE(STATUS "Enabling '-std=c++1y' compiler flag")
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
-ENDIF(ALL_C11)
+IF(NOT ALL_C11)
+	message(SEND_ERROR "c++1y is not supported")
+ENDIF(NOT ALL_C11)
+
+MESSAGE(STATUS "Enabling '-std=c++1y' compiler flag")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
 
 IF(NOT CMAKE_BUILD_TYPE)
 	SET(CMAKE_BUILD_TYPE Release CACHE STRING
@@ -32,7 +34,7 @@ SET(SRC_LIST
 	${CMAKE_CURRENT_SOURCE_DIR}/src/plot.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/con2mo.cpp
 	)
-    
+
 ADD_EXECUTABLE(traj_calc ${SRC_LIST})
 
 set(KepToolbox_INCLUDE "NOT-FOUND" CACHE PATH "description")
