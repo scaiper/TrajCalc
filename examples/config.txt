@@ -1,0 +1,59 @@
+# Lines starting with # are ignored
+
+# "planets" parameter defines desired sequence of planets
+# the first planet is planet of departure
+# the last planet is planet of arrival
+# and others are fly-by's
+planets                 Earth Venus Venus Earth Jupiter
+
+# If "solution" is defined no optimization is performed
+# and specified solution is printed.
+#solution                [58357.762, 0.512, 1.136, 0.142, 3.745]
+
+# Next two parameters defines time interval of departure
+# (can be fractional)
+lowest_start_year       2015
+highest_start_year      2032
+
+# Maximum time of flight in years
+max_tof                 10
+
+# If specified, only solutions with nearly zero fly-by dV is considered valid.
+# This is not nessesary as that type of flight is usualy the optimal one.
+# Default is no.
+zero_fly_by             no
+
+# If specified, two-objective optimization is performed: for both dV and ToF.
+# All solutions is written in dv_ToF.plt and dv_ToF.txt,
+# solution with lowest dV is printed as usual.
+# Data from dv_ToF.txt can be used for "solution" parameter.
+# Default is yes.
+optimizeToF             yes
+
+# Maximum dV to use.
+# Default is unlimited.
+max_dv					10000
+
+# Type of arrival, can be
+#     ignore
+#     insert [R]   - dV for insertion at specified distance is included in total dV cost.
+#                    If R is ommited, safe radius of target planet is used. (R in meters)
+#     aerobrake V  - aerobrake at destination is assumed, V is the maximum speed
+#                    vessel can sustain. If actual speed is greater,
+#                    difference is added to total dV cost. (V in m/s)
+# Default is ignore.
+#arrival                 ignore
+arrival                 insert      670e6
+#arrival                 aerobrake   15000
+
+# Number of generations per one evolution. Determines convergence degree.
+gen                     200
+
+# Put number of CPU cores here.
+threads                 8
+
+# Number of individuals per thread. Large population size increases diversity but severely impacts performance.
+# Try increasing this number if algorithm doesn't find global optimum,
+# this will be the case if planets sequence is long enough.
+# Minimum 8 and must be multiple of 4.
+population_per_thread   128
