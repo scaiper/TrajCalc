@@ -1,0 +1,10 @@
+Required libraries:
+  * PyKEP http://esa.github.io/pykep/
+  * PyGMO http://esa.github.io/pygmo/
+  * Boost
+
+Only C++ parts of PyKEP and PyGMO are needed.
+
+Compiler with C++1y support is required (GCC 4.9 or above).
+
+PyKEP and PyGMO have not configured for building with Visual Studio, so MinGW in needed for building for Windows.
